@@ -1,0 +1,23 @@
+{  
+    "token":"Mzc3MDUwNTMwNDkwNDgyNjg5.DOHTkw.O_85jYRgyBFKsC-KgjCZScHymt8",
+    "clientid":"377050530490482689",
+    "prefix":"!",
+    "chat":"verify",
+    "userrole":"377062274336030720",
+    "streamingGame":"CombineControl",
+    "streamingLink":"",
+    "evalAllowed":"false",
+    "ownerid":"322727506736185346",
+    "possibleCaptchaColors":[  
+        "red",
+        "green",
+        "blue",
+        "magenta",
+        "brown",
+        "darkcyan",
+        "gold"
+    ],
+    "blockedIDs":{  
+
+    }
+}
