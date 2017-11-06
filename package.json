@@ -1,0 +1,15 @@
+{
+  "name": "discordcaptcha-master",
+  "version": "1.0.0",
+  "description": "Captcha Verification Bot based on Discord.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^11.1.0",
+    "webshot": "^0.18.0"
+  }
+}
