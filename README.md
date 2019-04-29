@@ -1,4 +1,4 @@
-# DiscordCaptcha
+# EzCaptcha
 
 A Captcha verification bot based on discord.js.
 
