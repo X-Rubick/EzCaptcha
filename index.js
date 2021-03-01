@@ -6,11 +6,9 @@ const token = config.token;
 const clientID = config.clientid;
 const prefix = "!"
 const normalChat = config.chat;
-const userRoleID = "367789057352400908"
+const userRoleID = config.userrole;
 const evalPerm = config.evalAllowed;
-const owner = "322727506736185346"
-const streamingGame = "CombineControl"
-const streamingLink = config.streamingLink;
+const owner = config.ownerid;
 const colors = config.possibleCaptchaColors;
 const blockedAccountIDs = config.blockedIDs;
 const query = require("./src/Query.json")
@@ -23,16 +21,20 @@ client.on("guildMemberAdd", (member) => {
     member.user.send({
         embed: {
             color: 0xffff00,
-            description: "To verify yourself as a human, write `" + prefix + "receive` in the guild to receive your captcha"
+            description: "To verify yourself as a human, write `" + prefix + "receive` in the #verify channel to receive your captcha via Direct Message"
         }
     });
 });
 
 
-client.on("ready", () => {
-    console.log("Logged in!")
-    client.user.setGame(streamingGame, streamingLink);
+client.on('ready', () => {
+  console.log(config.botStarted + ` ${client.user.tag}!`);
+  client.user.setPresence({ status: 'online', game: { name: config.gameMessage } }); 
+  if(config.setNewAvatar){
+    client.user.setAvatar(config.avatar); 
+  } 
 });
+
 
 client.on('message', (message) => {
     if (!message.guild) return;
@@ -108,7 +110,7 @@ client.on('message', (message) => {
                     message.author.send({
                         embed: {
                             color: 0x0000ff,
-                            description: "Write `!verify` <code> in the guild to write in all channel. \n\n**Verification Bot modified by Shekelstein#8863**"
+                            description: "\n**Please memorise the Captha <code> below!** \nReturn to #verify channel. \nWrite `!verify` <code> in the #verify channel \nto see the protected server channels."
                         }
                     });
                     message.delete();
