@@ -1,11 +1,12 @@
 {  
-    "token":"Mzc3MDUwNTMwNDkwNDgyNjg5.DOHTkw.O_85jYRgyBFKsC-KgjCZScHymt8",
-    "clientid":"377050530490482689",
+    "token":"BOT_Token_goes_here",
+    "clientid":"BOT_client_ID_number_goes_here",
     "prefix":"!",
     "chat":"verify",
-    "userrole":"377062274336030720",
-    "streamingGame":"CombineControl",
-    "streamingLink":"",
+    "userrole":"user_role_ID_numer_before_verification-usually_@everyone",
+    "gameMessage":"Catching SPAM bots",
+    "botStarted": "Bot started and online as",
+    "avatar":"./avatar.png",
     "evalAllowed":"false",
     "ownerid":"322727506736185346",
     "possibleCaptchaColors":[  
