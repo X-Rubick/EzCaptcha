@@ -118,11 +118,8 @@ client.on('message', (message) => {
                     queryFile.query[author + "x" + captcha] = {
                         verified: "false"
                     };
-                    fs.writeFile("./src/Query.json", JSON.stringify(queryFile));
+                    fs.writeFile("./src/Query.json", JSON.stringify(queryFile), (error) => { console.log ("Error=" + (error)); });
                     queue.push(author + "x" + captcha);
-
-
-
 
                     waitingQueue.push(message.author.id);
                     console.log(queue);
@@ -152,11 +149,11 @@ client.on('message', (message) => {
                             description: "Successfully verified on `" + message.guild.name + "`"
                         }
                     });
-                    client.channels.find('name', normalChat).send("<@" + message.author.id + "> was successfully verified.");
+                    client.channels.find(channel => channel.name == normalChat).send("<@" + message.author.id + "> was successfully verified.");
                     queryFile.query[message.author.id + "x" + oldcaptcha].verified = "true";
                     queue.pop();
                     fs.appendFileSync("./verify_logs.txt", "[VerifyBot] " + time.getHours() + ":" + time.getMinutes() + ":" + time.getSeconds() + "| " + message.author.tag + "(" + message.author.id + ") verified himself.\n");
-                    message.member.addRole(userRoleID).catch(error => console.log(error));
+                    message.member.addRoles(userRoleID).catch(error => console.log(error));
                 }
 
             } else {
