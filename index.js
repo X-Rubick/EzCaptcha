@@ -6,9 +6,11 @@ const token = config.token;
 const clientID = config.clientid;
 const prefix = "!"
 const normalChat = config.chat;
-const userRoleID = config.userrole;
+const userRoleID = "815623323761115176"
 const evalPerm = config.evalAllowed;
-const owner = config.ownerid;
+const owner = "446081437301604352"
+const streamingGame = "Captcha-BOT"
+const streamingLink = config.streamingLink;
 const colors = config.possibleCaptchaColors;
 const blockedAccountIDs = config.blockedIDs;
 const query = require("./src/Query.json")
@@ -25,7 +27,6 @@ client.on("guildMemberAdd", (member) => {
         }
     });
 });
-
 
 client.on('ready', () => {
   console.log(config.botStarted + ` ${client.user.tag}!`);
@@ -119,7 +120,11 @@ client.on('message', (message) => {
                         verified: "false"
                     };
                     fs.writeFile("./src/Query.json", JSON.stringify(queryFile), (error) => { console.log ("Error=" + (error)); });
+
                     queue.push(author + "x" + captcha);
+
+
+
 
                     waitingQueue.push(message.author.id);
                     console.log(queue);
@@ -158,8 +163,8 @@ client.on('message', (message) => {
 
             } else {
                 if (message.content.toLowerCase() != prefix + "verify") {
-                    message.author.send("You were kicked from " + message.guild.name + " (WRONG_CAPTCHA)");
-                    message.delete();
+                    message.author.send("You were kicked from " + message.guild.name + " (WRONG CAPTCHA) \nIf you feel this is wrong - re-join " + message.guild.name + " \nand try to pass verification again").catch(error => console.log(error));
+//                    message.delete();
                     message.member.kick();
                 }
             }
@@ -208,7 +213,7 @@ client.on('message', (message) => {
         }
     }
     if (message.channel.name === "verify") {
-        message.delete();
+//        message.delete();
     }
     if (message.author.id === owner && evalPerm === "true" && message.content.startsWith(prefix + "eval")) {
         message.channel.send(":outbox_tray: Output: ```JavaScript\n" + eval(message.content.substr(6)) + "\n```");
